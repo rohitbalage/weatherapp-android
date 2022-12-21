@@ -4,32 +4,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:orientation="vertical"
     android:background="#1E90FF"
-    android:id="@+id/linear_layout"
-    >
-  <TextView
-    android:layout_width="wrap_content"
+    tools:context=".WhetherActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/textViewCity"
-    android:layout_gravity="center"
-    android:layout_margin="7dp"
-    android:text="London, GB"
-    android:textSize="30sp"
-    android:textColor="#FFFFFF"
-    />
+    android:orientation="horizontal"
+    android:layout_marginTop="5dp">
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_weight="1"
+        android:background="@drawable/background_file"
+        android:drawableStart="@drawable/city"
+        android:gravity="center"
+        android:hint="Enter city name"
+        android:padding="15dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:id="@+id/editTextCityName"
+        android:inputType="textPersonName"
+        />
+    <Button
+        android:layout_width="40dp"
+
+        android:layout_height="40dp"
+        android:background="@drawable/search"
+        android:layout_marginStart="7dp"
+        android:id="@+id/search"
+        />
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/linear_layout_weather"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewCityWhether"
+        android:layout_gravity="center"
+        android:layout_margin="7dp"
+        android:text="London, GB"
+        android:textSize="30sp"
+        android:textColor="#FFFFFF"
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
- android:orientation="horizontal"
+        android:orientation="horizontal"
         android:layout_marginTop="3dp">
 
         <ImageView
-            android:id="@+id/imageView"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginStart="25dp"
+            android:id="@+id/imageViewWhether"
             android:src="@drawable/ic_launcher_background"
             android:scaleType="fitXY"/>
 
@@ -40,25 +75,25 @@
             android:layout_marginStart="10dp">
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textViewTemp"
-            android:text="25 C"
-            android:textSize="50sp"
-            android:textColor="#FFFFFF"
-             android:layout_gravity="center"   />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewTempWhether"
+                android:text="25 C"
+                android:textSize="50sp"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center"   />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textViewWeatherCondition"
-            android:text="Few Cloud"
-            android:textSize="30sp"
-            android:textColor="#FFFFFF"
-            android:textAlignment="center"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewWeatherCondition"
+                android:text="Few Cloud"
+                android:textSize="30sp"
+                android:textColor="#FFFFFF"
+                android:textAlignment="center"
 
-            />
+                />
         </LinearLayout>
 
     </LinearLayout>
@@ -127,8 +162,6 @@
                 android:layout_marginTop="5dp"
                 />
 
-
-
         </LinearLayout>
 
         <LinearLayout
@@ -138,16 +171,24 @@
             android:layout_marginStart="10dp"
             >
             <TextView
-                android:id="@+id/textViewHumidity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=":50%"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
+                android:id="@+id/textViewHumidityWhether"
                 android:layout_marginTop="5dp"/>
 
             <TextView
-                android:id="@+id/textViewMaxTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewMaxTempWhether"
+                android:text=":25 C"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:layout_marginTop="5dp"/>
+            <TextView
+                android:id="@+id/textViewMinTempWhether"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=":25 C"
@@ -155,15 +196,7 @@
                 android:textSize="24sp"
                 android:layout_marginTop="5dp"/>
             <TextView
-                android:id="@+id/textViewMinTemp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=":25 C"
-                android:textColor="#FFFFFF"
-                android:textSize="24sp"
-                android:layout_marginTop="5dp"/>
-            <TextView
-                android:id="@+id/textViewPressure"
+                android:id="@+id/textViewPressureWhether"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=":50"
@@ -171,7 +204,7 @@
                 android:textSize="24sp"
                 android:layout_marginTop="5dp"/>
             <TextView
-                android:id="@+id/textViewWind"
+                android:id="@+id/textViewWindWhether"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=":5"
@@ -184,23 +217,8 @@
 
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:layout_marginBottom="20dp"
-            android:layout_marginEnd="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf='parent'
+</LinearLayout>
 
-            android:contextClickable="true"
-            app:srcCompat="@drawable/add"
-       />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
